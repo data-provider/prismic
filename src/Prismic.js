@@ -10,7 +10,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 */
 
 import PrismicClient from "prismic-javascript";
-import { Provider } from "@data-provider/core";
+import { Provider, providerArgsV3 } from "@data-provider/core";
 
 const PRISMIC_TAG = "prismic";
 const defaultConfig = {
@@ -20,8 +20,9 @@ const defaultConfig = {
 };
 
 export class Prismic extends Provider {
-  constructor(url, options, query) {
-    super({ id: `prismic-${url}`, ...defaultConfig, ...options, url }, query);
+  constructor(...args) {
+    const [url, options, queryValue] = providerArgsV3(args);
+    super({ ...defaultConfig, ...options, url, id: `prismic-${url}` }, queryValue);
   }
 
   configMethod(configuration) {
