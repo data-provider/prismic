@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2.1.1] - 2021-01-27
 
+### Fixed
 - fix: Overwrite id in options. Queried providers were receiving parent id instead of queried id
 
 ## [2.1.0] - 2021-01-07
